@@ -7,3 +7,5 @@ const width = 1920;
 // resize canvas (CSS does scale it up or down)
 canvas.height = height;
 canvas.width = width;
+
+context.fillRect(100, 150, 200, 300);
