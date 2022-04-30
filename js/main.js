@@ -29,13 +29,13 @@ function startDrawing(e) {
     draw(e);
 }
 
-window.addEventListener("mousedown", startDrawing);
+// window.addEventListener("mousedown", startDrawing);
 
 function endDrawing(e) {
   drawing = false;
 }
 
-window.addEventListener("mouseup", endDrawing);
+// window.addEventListener("mouseup", endDrawing);
 
 function getMousePos(canvas, evt) {
   var rect = canvas.getBoundingClientRect(),
@@ -56,7 +56,23 @@ function draw(e) {
   context.stroke();
 }
 
-window.addEventListener("mousemove", draw);
+// window.addEventListener("mousemove", draw);
 
 context.lineWidth = 10;
 context.lineCap = "round";
+
+// implement drawing rectangle
+let start = {}
+
+function startRect(e) {
+    start = getMousePos(canvas, e);
+}
+
+window.addEventListener("mousedown", startRect);
+
+function endRect(e) {
+    let { x, y } = getMousePos(canvas, e);
+    context.fillRect(start.x, start.y, x - start.x, y - start.y);
+}
+
+window.addEventListener("mouseup", endRect);
