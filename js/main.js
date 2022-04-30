@@ -16,3 +16,6 @@ context.lineTo(100, 150);
 context.stroke();
 // this ends the current path
 context.beginPath();
+
+context.strokeStyle = 'red';
+context.fillStyle = 'red';
